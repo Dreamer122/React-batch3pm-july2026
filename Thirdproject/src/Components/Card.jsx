@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const Card = ({product}) => {
     const {id,images,price,title,category}=product
