@@ -6,13 +6,13 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
+/* body {
   background-color: #f4f7f6;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
+} */
 
 .cardcontainer{
   display:flex;

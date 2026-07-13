@@ -3,6 +3,7 @@ import {Card} from "../Components/Card"
 import { Loader } from "../Components/Loader"
 import { Navbar } from "../Components/Navbar"
 import { GoSearch } from "react-icons/go"
+import { Link } from "react-router"
 export const Home = () => {
     // console.log("start")
     const [data,setData]=useState([])
@@ -39,7 +40,6 @@ export const Home = () => {
     }
   return (
    <>
-   <Navbar/>
    <h1 style={{textAlign:"center",marginBlock:"20px"}}> All Products</h1>
    <div className="sb">
     <div className="searchbar">
@@ -51,7 +51,9 @@ export const Home = () => {
    {
     filterdata.map((prd)=>{
        return (
-        <Card product={prd} key={prd.id}/>
+        <Link key={prd.id} to={`/description/${prd.slug}/${prd.id}`}>
+        <Card product={prd} />
+        </Link>
        )
     })
    }
