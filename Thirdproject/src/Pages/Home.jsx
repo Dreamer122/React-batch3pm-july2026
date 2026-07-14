@@ -4,7 +4,7 @@ import { Loader } from "../Components/Loader"
 import { Navbar } from "../Components/Navbar"
 import { GoSearch } from "react-icons/go"
 import { Link } from "react-router"
-export const Home = () => {
+export const Home = ({addcart}) => {
     // console.log("start")
     const [data,setData]=useState([])
     const [filterdata,setFilterData]=useState([])
@@ -51,9 +51,7 @@ export const Home = () => {
    {
     filterdata.map((prd)=>{
        return (
-        <Link key={prd.id} to={`/description/${prd.slug}/${prd.id}`}>
-        <Card product={prd} />
-        </Link>
+        <Card product={prd} addcart={addcart} key={prd.id} />
        )
     })
    }

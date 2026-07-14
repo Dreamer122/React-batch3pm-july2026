@@ -1,5 +1,5 @@
-
-export const Card = ({product}) => {
+import { Link } from "react-router"
+export const Card = ({product,addcart}) => {
     const {id,images,price,title,category}=product
   return (
     <>
@@ -9,9 +9,12 @@ export const Card = ({product}) => {
   <span className="product-badge">New</span>
   
   {/* <!-- Image container to prevent layout shifts --> */}
+        <Link to={`/description/${product.slug}/${product.id}`}>
+
   <div className="product-image-box">
     <img src={images[0]} alt={title} className="product-image"/>
   </div>
+  </Link>
   
   {/* <!-- Content section holding product specifications --> */}
   <div className="product-details">
@@ -30,7 +33,7 @@ export const Card = ({product}) => {
         <span className="current-price">${price}</span>
         <span className="original-price">$159.99</span>
       </div>
-      <button className="add-to-cart-btn" aria-label="Add Nike Air Max Speed to cart">
+      <button onClick={()=>addcart(product)} className="add-to-cart-btn" aria-label="Add Nike Air Max Speed to cart">
         Add to Cart
       </button>
     </div>
