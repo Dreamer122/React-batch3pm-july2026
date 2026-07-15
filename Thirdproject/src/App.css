@@ -178,6 +178,9 @@ a{
   color:white;
   align-items: center;
   justify-content: center;
+  position:sticky;
+  top:0;
+  z-index: 99;
 
 }
 .Nav>ul{
@@ -193,6 +196,14 @@ a{
   color:white;
 }
 
+.badge{
+  background:white;
+  color:blue;
+  padding:0 5px;
+  border-radius: 20px;
+  position:absolute;
+  top:-10px;
+}
 /* searchbar */
 .sb{
   width:70%;
