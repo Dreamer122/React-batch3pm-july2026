@@ -31,6 +31,42 @@ const [cart,setCart]=useState([])
 
 
   }
+
+  // remove function
+  // 15 id
+  // 12,15,16
+  // id!=15 -> 12,16
+  const removeprd=(prd)=>{
+    console.log("product=",prd)
+    const filteredarray=cart.filter((p)=>p.id!=prd.id)
+    setCart([...filteredarray])
+  }
+  // increase qty, decrease qty
+  const quantity=(p,v)=>{
+    const newarr=cart.map((prd)=>{
+      if(prd.id==p.id){
+        if(v==1){
+
+          prd.qty+=v
+          return prd
+        }
+        else{
+          if(prd.qty<2){
+            return prd
+          }
+          else{
+            prd.qty+=v
+            return prd
+          }
+        }
+      }
+      else{
+        return prd
+      }
+    })
+    setCart([...newarr])
+
+  }
   return (
     // dynamic routing
     <>
@@ -39,7 +75,7 @@ const [cart,setCart]=useState([])
 <Route path="/" element={<Layout cart={cart}/>} >
       <Route index element={<Home addcart={addcart}/>}></Route>
       <Route path="/about" element={<AboutPage />} />
-      <Route path="/cart" element={<CartPage cart={cart} />} />
+      <Route path="/cart" element={<CartPage cart={cart} removefun={removeprd} quantity={quantity} />} />
       <Route path="/description/:slug/:id" element={<DescPage />} />
       <Route path="/*" element={<ErrorPage />} />
 </Route>

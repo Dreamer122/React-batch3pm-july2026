@@ -16,7 +16,7 @@ export const Home = ({addcart}) => {
     useEffect(()=>{
      fetch("https://api.escuelajs.co/api/v1/products")
      .then((res)=>res.json()).then((data1)=>{
-        console.log("data",data1)
+        // console.log("data",data1)
         setData(data1)
         setFilterData(data1)
     })
@@ -50,6 +50,8 @@ export const Home = ({addcart}) => {
 
    {
     filterdata.map((prd)=>{
+        prd.qty=1
+        // console.log("prd=",prd)
        return (
         <Card product={prd} addcart={addcart} key={prd.id} />
        )

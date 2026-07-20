@@ -1,8 +1,24 @@
+import { useState,useEffect } from "react"
 
-export const CartPage = ({cart}) => {
+export const CartPage = ({cart,removefun,quantity}) => {
+  const [totalbill,setTotalBill]=useState(0)
    if(cart?.length==0){
    return(<h3>Your cart is empty</h3>)
    }
+
+   const total=()=>{
+      let bill=0
+      cart.forEach((prd)=>{
+        let prdtotal=prd.price*prd.qty
+        bill+=prdtotal
+
+      })
+      setTotalBill(bill)
+
+   }
+   useEffect(()=>{
+    total()
+   },[cart])
   return (
    <>
    <div>
@@ -40,15 +56,15 @@ export const CartPage = ({cart}) => {
 {/* contenct box */}
 <div>
   <p>{p.title}</p>
-  <p>remove</p>
+  <button onClick={()=>removefun(p)}>remove</button>
 </div>
               </td>
 
               {/* second td */}
               <td>
-                <button>+</button>
-                <span>1</span>
-                <button>-</button>
+                <button className="btns" onClick={()=>quantity(p,1)}>+</button>
+                <span style={{marginInline:"20px"}}>{p.qty}</span>
+                <button className="btns" onClick={()=>quantity(p,-1)}>-</button>
               </td>
               <td>
                 {p.price}
@@ -61,6 +77,7 @@ export const CartPage = ({cart}) => {
       </tbody>
     </table>
     </div>
+    <h1>{totalbill}</h1>
    </div>
    </>
   )

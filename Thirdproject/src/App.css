@@ -258,3 +258,8 @@ font-size: 18px;
   flex-wrap:wrap;
   gap:10px;
 }
+.btns{
+  height: 20px;
+  width:20px;
+  
+}
