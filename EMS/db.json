@@ -1,0 +1,23 @@
+{"employees":[
+    {
+"id":101,
+"Name":"john",
+"phone":"23456789",
+"designation":"web developer"
+},
+    {
+        "id":102,
+"Name":"david",
+"phone":"233456789",
+"designation":"web developer"
+    },
+    {
+        "id":103,
+"Name":"kunal",
+"phone":"22256789",
+"designation":"web developer"
+    }
+]
+
+
+}
