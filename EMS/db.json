@@ -13,16 +13,42 @@
       "designation": "web developer"
     },
     {
-      "id": "103",
-      "Name": "kunal",
-      "phone": "22256789",
-      "designation": "web developer"
+      "Name": "Harsh",
+      "Email": "Harsh@gmail.com",
+      "Salary": "45000",
+      "id": "Cvs6QFJd3l0"
     },
     {
-      "name": "Monika Gola",
+      "Name": "mohit",
+      "Email": "mohit@gmail.com",
+      "Salary": "40000",
+      "id": "swzRjCJCU4c"
+    },
+    {
+      "Name": "sohit",
+      "Email": "sohit@gmail.com",
+      "Salary": "34000",
+      "id": "-6bYp_7f5HU"
+    },
+    {
+      "Name": "Monika Gola",
       "Email": "dreamerinfotech.monika@gmail.com",
       "Salary": "45000",
-      "id": "EIQMDIKKdjM"
+      "id": "sdJe6QZcSOI"
+    },
+    {
+      "Name": "Monika Gola",
+      "Email": "dreamerinfotech.monika@gmail.com",
+      "Salary": "56000",
+      "id": "TCgtddJNhs4"
+    },
+    {
+      "Name": "New Employee",
+      "Email": "newemp@gmail.com",
+      "Salary": "34000",
+      "Department": "GA",
+      "Designation": "web developer",
+      "id": "T6LyZGx9tCQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,5 +1,6 @@
 import { useEffect,useState } from 'react';
 import axios from 'axios';
+import { Card } from '../Components/Card';
 export const Home = () => {
     const [empdata,setEmpdata]=useState([])
 
@@ -14,25 +15,35 @@ export const Home = () => {
             console.log("error",error)
         }
     }
+    // delete emp
+    const deleteemp= async(id)=>{
+        const check=confirm("are you sure?")
+        if(check){
+
+            const res=await axios.delete(`http://localhost:3000/employees/${id}`)
+            console.log("res,",res)
+        }
+
+    }
 
     useEffect(()=>{
        getdata()
     },[])
   return (
    <>
+   <div className="flex gap-6 flex-wrap mx-auto w-[90%]">
    {
     empdata?.map((e)=>{
         return (
-            <div key={e.id}>
-                <img
-  src={`https://api.dicebear.com/10.x/initials/svg?seed=${e.Name}`}
-  alt="avatar" className="rounded-full w-10" />
-                <p className="text-amber-300">{e.Name}</p>
-                <p>{e.designation}</p>
-            </div>
+            <>
+            <Card key={e.id} data={e} deleteemp={deleteemp}/>
+
+               </>
+            
         )
     })
    }
+   </div>
    </>
   )
 }
