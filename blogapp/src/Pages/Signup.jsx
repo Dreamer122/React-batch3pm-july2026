@@ -4,9 +4,11 @@ import { account } from '../lib/appwrite'
 import { db } from '../appwriteConfig'
 import { ID } from 'appwrite'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router'
 
 export const Signup = () => {
   const [loading,setLoading]=useState(false)
+  const navigate=useNavigate()
     const {register,handleSubmit,formState:{errors}}=useForm()
 
     const createAccount=async (data)=>{
@@ -30,11 +32,12 @@ export const Signup = () => {
     data: {
       FullName:data.fullname,
       Email:data.email,
+      userId:user.$id
     }
 });
 console.log("response",res)
 toast.success("account created successfully")
-
+navigate("/login")
 
 } catch (e){
     console.error(e)
@@ -52,7 +55,7 @@ finally{
  <form action="" onSubmit={handleSubmit(createAccount)}>
     <input type="text" placeholder='enter your full name' {...register("fullname",{required:true})} /> <br />
     <input type="email" placeholder='enter your email' {...register("email",{required:true})} /> <br />
-    <input type="password" name="" id="" placeholder='create password' {...register("password",{required:true})} /> <br />
+    <input type="text" name="" id="" placeholder='create password' {...register("password",{required:true})} /> <br />
     <input type="submit" disabled={loading} value={`${loading?"creating...":"create account"}`} />
  </form>
  </>
